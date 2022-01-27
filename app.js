@@ -18,8 +18,8 @@ app.use(cors());
 let dictators = [];
 
 app.get('/getDictators', function(req, res) {
+    res.json(dictators);
     console.log(dictators);
-    res.send(dictators);
 });
 
 app.post('/create', function (req, res) {
