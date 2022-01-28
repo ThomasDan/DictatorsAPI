@@ -15,23 +15,21 @@ app.use(cors());
 
 
 
-let dictators = [];
+let dictators = new Array();
 
 app.get('/getDictators', function(req, res) {
     res.json(dictators);
-    console.log(dictators);
 });
 
 app.post('/create', function (req, res) {
     const dictator = req.body;
-    console.log('Attempted to create a dictator!');
-    
     dictators.push(dictator);
   });
 
-app.delete('/delete', function (req, res) { 
-    const dictator = req.body.Index;
-    dictators.splice(dictator, 1);
+app.delete('/delete/:id', function (req, res) { 
+    //const dictator = req.body.Index;
+    const { i } = req.params;
+    console.log('Deleted Dictator: ' + dictators.splice(i, 1).values);
 })
 
 app.listen(port, () => {
