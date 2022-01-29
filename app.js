@@ -26,10 +26,10 @@ app.post('/create', function (req, res) {
     dictators.push(dictator);
   });
 
-app.delete('/delete/:id', function (req, res) { 
+app.delete('/delete/:i', function (req, res) { 
     //const dictator = req.body.Index;
     const { i } = req.params;
-    console.log('Deleted Dictator: ' + dictators.splice(i, 1).values);
+    dictators.splice(i, 1);
 })
 
 app.listen(port, () => {
